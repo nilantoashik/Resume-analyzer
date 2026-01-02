@@ -106,6 +106,22 @@ fileLabel.addEventListener('drop', (e) => {
 uploadForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     
+    // Check if running on GitHub Pages
+    if (window.location.hostname.includes('github.io')) {
+        showError(
+            'GitHub Pages Demo Mode',
+            'This is a static preview and cannot process resumes. To use the AI-powered analysis:',
+            [
+                '1. Clone the repository: git clone https://github.com/nilantoashik/Resume-analyzer.git',
+                '2. Install dependencies: pip install -r requirements.txt',
+                '3. Add your OpenAI API key to .env file',
+                '4. Run the server: python app.py',
+                '5. Open http://localhost:5000 in your browser'
+            ]
+        );
+        return;
+    }
+    
     console.log('Form submitted');
     console.log('API Base:', API_BASE);
     console.log('File selected:', resumeFile.files[0]);
@@ -148,9 +164,9 @@ uploadForm.addEventListener('submit', async (e) => {
     } catch (error) {
         console.error('Error:', error);
         if (error.name === 'TypeError' && error.message.includes('fetch')) {
-            showError('Cannot connect to server. Please make sure the server is running on port 5000.');
+            showError('Connection Error', 'Cannot connect to server. Please make sure the server is running on localhost:5000');
         } else {
-            showError(error.message || 'Failed to analyze resume. Please try again.');
+            showError('Analysis Error', error.message || 'Failed to analyze resume. Please try again.');
         }
     } finally {
         // Reset loading state
@@ -301,9 +317,22 @@ function updateScoreBar(type, value) {
 }
 
 // Show error message
-function showError(message) {
+function showError(title, message, instructions = null) {
     errorSection.style.display = 'block';
-    document.getElementById('error-message').textContent = message;
+    const errorMessageEl = document.getElementById('error-message');
+    
+    if (instructions) {
+        // Format with title, message, and instructions
+        let html = `<strong>${title}</strong><br><br>${message}<br><br>`;
+        instructions.forEach(instruction => {
+            html += `<div style="margin: 8px 0; padding-left: 20px; font-family: monospace; font-size: 0.9em;">${instruction}</div>`;
+        });
+        html += `<br><a href="https://github.com/nilantoashik/Resume-analyzer" target="_blank" style="color: #4CAF50; text-decoration: none; font-weight: 600;">View Repository →</a>`;
+        errorMessageEl.innerHTML = html;
+    } else {
+        // Simple message (for backward compatibility)
+        errorMessageEl.textContent = typeof title === 'string' && !message ? title : `${title}: ${message}`;
+    }
 }
 
 // Try again button
