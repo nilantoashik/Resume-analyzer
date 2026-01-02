@@ -1,0 +1,18 @@
+
+    John Doe
+    Email: john.doe@example.com
+    Phone: (555) 123-4567
+    
+    EXPERIENCE
+    Software Engineer at Tech Corp
+    2020-Present
+    - Developed Python applications
+    - Worked with Flask and Django
+    
+    SKILLS
+    Python, JavaScript, React, Node.js, SQL
+    
+    EDUCATION
+    Bachelor of Science in Computer Science
+    University of Technology, 2020
+    

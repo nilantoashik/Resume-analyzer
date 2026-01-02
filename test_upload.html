@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Upload</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .result { margin-top: 20px; padding: 10px; border: 1px solid #ccc; }
+        .error { background: #fee; border-color: #f00; }
+        .success { background: #efe; border-color: #0f0; }
+    </style>
+</head>
+<body>
+    <h1>Resume Upload Test</h1>
+    
+    <form id="testForm">
+        <input type="file" id="fileInput" accept=".pdf,.docx" required><br><br>
+        <button type="submit">Upload & Test</button>
+    </form>
+    
+    <div id="result" class="result" style="display:none;"></div>
+    
+    <script>
+        document.getElementById('testForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const resultDiv = document.getElementById('result');
+            resultDiv.style.display = 'block';
+            resultDiv.className = 'result';
+            resultDiv.textContent = 'Uploading...';
+            
+            const formData = new FormData();
+            const fileInput = document.getElementById('fileInput');
+            formData.append('resume', fileInput.files[0]);
+            formData.append('job_description', '');
+            
+            try {
+                console.log('Uploading file:', fileInput.files[0].name);
+                
+                const response = await fetch('http://localhost:5000/api/analyze', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                console.log('Response status:', response.status);
+                
+                const data = await response.json();
+                console.log('Response data:', data);
+                
+                if (response.ok) {
+                    resultDiv.className = 'result success';
+                    resultDiv.innerHTML = '<h3>Success!</h3><pre>' + JSON.stringify(data, null, 2) + '</pre>';
+                } else {
+                    resultDiv.className = 'result error';
+                    resultDiv.textContent = 'Error: ' + (data.error || 'Unknown error');
+                }
+            } catch (error) {
+                console.error('Fetch error:', error);
+                resultDiv.className = 'result error';
+                resultDiv.textContent = 'Failed to fetch: ' + error.message;
+            }
+        });
+    </script>
+</body>
+</html>
