@@ -16,7 +16,7 @@ const uploadSection = document.querySelector('.upload-section');
 // API Base URL
 // Use environment variable or fallback to current origin
 const API_BASE = window.location.hostname.includes('github.io') 
-    ? 'https://resume-analyzer-api.onrender.com'  // Your deployed backend URL
+    ? 'https://resume-analyzer-8x1g.onrender.com'  // Deployed backend on Render
     : window.location.origin;  // Local development
 
 // Store analysis data for download
