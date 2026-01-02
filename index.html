@@ -10,71 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        .gh-pages-notice {
-            position: fixed;
-            top: 80px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-            border: 2px solid #4CAF50;
-            border-radius: 12px;
-            padding: 20px 30px;
-            max-width: 600px;
-            z-index: 9999;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-            animation: slideDown 0.5s ease-out;
-        }
-        @keyframes slideDown {
-            from { top: -100px; opacity: 0; }
-            to { top: 80px; opacity: 1; }
-        }
-        .gh-pages-notice h3 {
-            color: #4CAF50;
-            margin: 0 0 10px 0;
-            font-size: 1.2rem;
-        }
-        .gh-pages-notice p {
-            color: #fff;
-            margin: 8px 0;
-            line-height: 1.6;
-        }
-        .gh-pages-notice a {
-            color: #4CAF50;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        .gh-pages-notice a:hover {
-            text-decoration: underline;
-        }
-        .close-notice {
-            position: absolute;
-            top: 10px;
-            right: 15px;
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 24px;
-            cursor: pointer;
-            opacity: 0.7;
-        }
-        .close-notice:hover {
-            opacity: 1;
-        }
-    </style>
 </head>
 <body>
-    <!-- GitHub Pages Notice -->
-    <div class="gh-pages-notice" id="gh-notice">
-        <button class="close-notice" onclick="document.getElementById('gh-notice').style.display='none'">&times;</button>
-        <h3>📌 Demo Preview Mode</h3>
-        <p><strong>This is a static preview.</strong> The full AI-powered analysis requires a backend server.</p>
-        <p><strong>To run the full application:</strong></p>
-        <p>1. Clone the repository: <code style="background: #000; padding: 2px 8px; border-radius: 4px;">git clone https://github.com/nilantoashik/Resume-analyzer.git</code></p>
-        <p>2. Follow the <a href="https://github.com/nilantoashik/Resume-analyzer#installation" target="_blank">installation instructions</a> in the README</p>
-        <p>3. Run locally: <code style="background: #000; padding: 2px 8px; border-radius: 4px;">python app.py</code></p>
-    </div>
-    
     <!-- Background decorations -->
     <div class="bg-decoration"></div>
     <div class="bg-decoration-2"></div>

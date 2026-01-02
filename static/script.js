@@ -14,7 +14,10 @@ const errorSection = document.getElementById('error-section');
 const uploadSection = document.querySelector('.upload-section');
 
 // API Base URL
-const API_BASE = window.location.origin;
+// Use environment variable or fallback to current origin
+const API_BASE = window.location.hostname.includes('github.io') 
+    ? 'https://resume-analyzer-api.onrender.com'  // Your deployed backend URL
+    : window.location.origin;  // Local development
 
 // Store analysis data for download
 let currentAnalysisData = null;
@@ -105,22 +108,6 @@ fileLabel.addEventListener('drop', (e) => {
 // Form submission
 uploadForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
-    // Check if running on GitHub Pages
-    if (window.location.hostname.includes('github.io')) {
-        showError(
-            'GitHub Pages Demo Mode',
-            'This is a static preview and cannot process resumes. To use the AI-powered analysis:',
-            [
-                '1. Clone the repository: git clone https://github.com/nilantoashik/Resume-analyzer.git',
-                '2. Install dependencies: pip install -r requirements.txt',
-                '3. Add your OpenAI API key to .env file',
-                '4. Run the server: python app.py',
-                '5. Open http://localhost:5000 in your browser'
-            ]
-        );
-        return;
-    }
     
     console.log('Form submitted');
     console.log('API Base:', API_BASE);
