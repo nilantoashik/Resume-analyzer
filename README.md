@@ -1,11 +1,11 @@
 # 🎯 AI Resume Analyzer
 
-An AI-powered web application that analyzes resumes and provides intelligent feedback, scoring, and improvement suggestions using OpenAI's GPT technology.
+An AI-powered web application that analyzes resumes and provides intelligent feedback, scoring, and improvement suggestions using AI technology.
 
 ## ✨ Features
 
 - **📄 Resume Parsing**: Supports PDF and DOCX formats
-- **🤖 AI Analysis**: Comprehensive resume evaluation using OpenAI GPT
+- **🤖 AI Analysis**: Comprehensive resume evaluation using AI GPT
 - **📊 Smart Scoring**: Multi-dimensional scoring system
   - Content Quality
   - Format & Structure
@@ -41,7 +41,7 @@ An AI-powered web application that analyzes resumes and provides intelligent fee
    - Open the `.env` file
    - Replace `your_openai_api_key_here` with your actual OpenAI API key:
      ```
-     OPENAI_API_KEY=sk-your-actual-api-key-here
+     AI_API_KEY=sk-your-actual-api-key-here
      ```
 
 3. **Start the application**:
@@ -58,7 +58,7 @@ An AI-powered web application that analyzes resumes and provides intelligent fee
 Resume analyzer/
 ├── app.py                 # Main Flask application
 ├── resume_parser.py       # Resume text extraction and parsing
-├── ai_analyzer.py         # OpenAI integration for analysis
+├── ai_analyzer.py         # AI integration for analysis
 ├── requirements.txt       # Python dependencies
 ├── .env.example          # Environment variables template
 ├── .gitignore            # Git ignore rules
@@ -93,7 +93,7 @@ If you prefer manual setup:
 4. **Configure environment**:
    ```bash
    copy .env.example .env
-   # Edit .env and add your OpenAI API key
+   # Edit .env and add your AI API key
    ```
 
 5. **Run the application**:
@@ -167,10 +167,10 @@ Edit `ai_analyzer.py` in the `score_resume` method to adjust scoring parameters.
 
 ## 💰 Cost Considerations
 
-- OpenAI API charges based on token usage
+- AI API charges based on token usage
 - Estimated cost per resume analysis: $0.01 - $0.05
 - Use GPT-3.5-turbo for lower costs
-- Monitor usage in OpenAI dashboard
+- Monitor usage in AI dashboard
 
 ## 🐛 Troubleshooting
 
@@ -179,7 +179,7 @@ Edit `ai_analyzer.py` in the `score_resume` method to adjust scoring parameters.
 pip install -r requirements.txt
 ```
 
-### "OpenAI API key not found"
+### "AI API key not found"
 - Check `.env` file exists
 - Verify API key is correct
 - Ensure no extra spaces around the key
@@ -219,7 +219,7 @@ This project is open source and available under the MIT License.
 
 ## 🙏 Acknowledgments
 
-- OpenAI for GPT API
+- AI for GPT API
 - Flask framework
 - PyPDF2 and python-docx libraries
 
@@ -227,7 +227,7 @@ This project is open source and available under the MIT License.
 
 For issues or questions:
 1. Check the troubleshooting section
-2. Review OpenAI API documentation
+2. Review AI API documentation
 3. Create an issue in the repository
 
 ## 🔄 Updates
@@ -240,4 +240,5 @@ pip install -r requirements.txt --upgrade
 
 ---
 **🌟 Star this project if you find it helpful!**
+
 
