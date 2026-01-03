@@ -239,7 +239,5 @@ pip install -r requirements.txt --upgrade
 ```
 
 ---
+**🌟 Star this project if you find it helpful!**
 
-**Made with ❤️ using AI • Powered by OpenAI GPT**
-
-🌟 Star this project if you find it helpful!
